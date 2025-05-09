@@ -1,16 +1,25 @@
-package main.java.lab15;
+package lab15;
 
-
-import lab15.Expression; 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.print("Enter an expression : ");
-        String expression = new Scanner(System.in).nextLine();
-        Expression e = new Expression(expression);
-        int result = e.calculate();
-        System.out.println("Result: " + result);
+        Scanner scanner = new Scanner(System.in);
+        String expression;
+
+        do {
+            System.out.println("Type 'exit' to quit the program.");
+            System.out.print("Enter an expression: ");
+            expression = scanner.nextLine();
+
+            if (!expression.equals("exit")) {
+                Expression e = new Expression(expression);
+                int result = e.calculate();
+                System.out.println("Result: " + result);
+            }
+        } while (!expression.equals("exit"));
+        
+        scanner.close(); 
     }
 }
 
